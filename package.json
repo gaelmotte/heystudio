@@ -1,0 +1,65 @@
+{
+  "name": "heystudio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "yourappid",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "MSI",
+      "icon": "build/hey.ico"
+    },
+    "protocols": [
+      {
+        "name": "hey",
+        "role": "Viewer",
+        "schemes": [
+          "hey",
+          "bonjour"
+        ]
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gruck/heystudio.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gruck/heystudio/issues"
+  },
+  "homepage": "https://github.com/Gruck/heystudio#readme",
+  "devDependencies": {
+    "electron": "^5.0.2",
+    "electron-builder": "^20.43.0"
+  },
+  "dependencies": {
+    "node-ipc": "^9.1.1"
+  }
+}
